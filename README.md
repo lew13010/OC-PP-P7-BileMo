@@ -1,69 +1,127 @@
-Symfony Standard Edition
+Créez un site e-commerce exposant une API
 ========================
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony
-application that you can use as the skeleton for your new applications.
+BileMo est un projet de formation OpenClassroom Développeur d'application PHP/Symfony
 
-For details on how to download and get started with Symfony, see the
-[Installation][1] chapter of the Symfony Documentation.
-
-What's inside?
+DEPENDENCES
 --------------
 
-The Symfony Standard Edition is configured with the following defaults:
+* FOSUserBundle (users management)
+* FOSOauthServerBundle (Oauth Server)
+* JMSSerializerBundle (Serializer Json)
+* BazingaHateoasBundle (Annotation Groups)
+* NelmioApiDocBundle (Documentation API)
 
-  * An AppBundle you can use to start coding;
+INSTALLATION
+--------------
 
-  * Twig as the only configured template engine;
+```
+$ php composer install
+```
 
-  * Doctrine ORM/DBAL;
+### DATABASE
 
-  * Swiftmailer;
+Create database:
+```
+$ php bin/console doctrine:database:create
+```
 
-  * Annotations enabled for everything.
+Update table:
+```
+$ php bin/console doctrine:schema:update --force
+```
 
-It comes pre-configured with the following bundles:
+REQUIRE FOR USE API
+--------------
 
-  * **FrameworkBundle** - The core Symfony framework bundle
+#### Create account 
 
-  * [**SensioFrameworkExtraBundle**][6] - Adds several enhancements, including
-    template and routing annotation capability
+Endpoint : `/api/users`
 
-  * [**DoctrineBundle**][7] - Adds support for the Doctrine ORM
+Method : `POST`
 
-  * [**TwigBundle**][8] - Adds support for the Twig templating engine
+Headers : `Content-Type : Application/json`
 
-  * [**SecurityBundle**][9] - Adds security by integrating Symfony's security
-    component
+Parameters (json format) :
 
-  * [**SwiftmailerBundle**][10] - Adds support for Swiftmailer, a library for
-    sending emails
+```
+{
+	"email": "email@domain.com",
+	"username": "username",
+	"plainPassword": "password"
+}
+```
 
-  * [**MonologBundle**][11] - Adds support for Monolog, a logging library
+Return `client_id` and `client_secret`.
+Keep this informations preciously for use API
 
-  * **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
-    the web debug toolbar
+#### Get Token API 
 
-  * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
-    configuring and working with Symfony distributions
+Endpoint : `/oauth/v2/token`
 
-  * [**SensioGeneratorBundle**][13] (in dev/test env) - Adds code generation
-    capabilities
+Method : `POST`
 
-  * **DebugBundle** (in dev/test env) - Adds Debug and VarDumper component
-    integration
+Headers : `Content-Type : Application/json`
 
-All libraries and bundles included in the Symfony Standard Edition are
-released under the MIT or BSD license.
+Parameters (json format) :
 
-Enjoy!
+```
+{
+	"grant_type": "password",
+	"client_id": "your_client_id",
+	"client_secret": "your_client_secret",
+	"username": "your_username",
+	"password": "your_password"
+}
+```
 
-[1]:  https://symfony.com/doc/3.2/setup.html
-[6]:  https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/index.html
-[7]:  https://symfony.com/doc/3.2/doctrine.html
-[8]:  https://symfony.com/doc/3.2/templating.html
-[9]:  https://symfony.com/doc/3.2/security.html
-[10]: https://symfony.com/doc/3.2/email.html
-[11]: https://symfony.com/doc/3.2/logging.html
-[12]: https://symfony.com/doc/3.2/assetic/asset_management.html
-[13]: https://symfony.com/doc/current/bundles/SensioGeneratorBundle/index.html
+Return a `token` valid for 1 hour and a `refresh_token` 
+
+#### Refresh Token API 
+
+Endpoint : `/oauth/v2/token`
+
+Method : `POST`
+
+Headers : `Content-Type : Application/json`
+
+Parameters (json format) :
+
+```
+{
+	"grant_type": "refresh_token",
+	"client_id": "your_client_id",
+	"client_secret": "your_client_secret",
+	"refresh_token": "your_refresh_token"
+}
+```
+
+Return new `token` valid for 1 hour
+
+
+ENDPOINTS
+--------------
+
+#### /api/doc
+Method: `GET`
+
+No need authorization for documentation consulting.
+
+### For all others endpoints API you must use:
+
+Method: `GET`
+
+Headers : `authorization : Bearer your_token`
+
+#### /api/users
+For get all users api.
+
+#### /api/users/{user_id}
+For get a user detail with id.
+
+#### /api/articles
+For get all articles api.
+
+#### /api/articles/{article_id}
+For get article detail with id.
+
