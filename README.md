@@ -174,7 +174,7 @@ For get a user details with id.
     "id": 1,
     "username": "user1",
     "email": "user@domain.com",
-    "roles": []
+    "roles": [] //empty if 'ROLE_DEFAULT' 
 }
 ```
 
