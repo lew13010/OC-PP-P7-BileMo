@@ -58,9 +58,9 @@ REQUIRE FOR USE API
  - Request (json format) :
 ```json
 {
-	"email": "email@domain.com",
-	"username": "username",
-	"plainPassword": "password"
+    "email": "email@domain.com",
+    "username": "username",
+    "plainPassword": "password"
 }
 ```
  - Response exemple (json format) :
