@@ -43,7 +43,7 @@ $ php bin/console doctrine:fixtures:load
 
 DOCUMENTATION API
 --------------
-`/api/doc`
+`/doc/api`
  
  No need authorization for documentation consulting.
 

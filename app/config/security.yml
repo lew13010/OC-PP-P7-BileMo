@@ -18,7 +18,7 @@ security:
             security: false
 
         api_doc:
-            pattern: ^/api/doc
+            pattern: ^/doc/api
             security: false
 
         oauth_token:
