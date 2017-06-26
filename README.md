@@ -52,7 +52,7 @@ Headers : `Content-Type : Application/json`
 
 Parameters (json format) :
 
-```
+```json
 {
 	"email": "email@domain.com",
 	"username": "username",
@@ -73,7 +73,7 @@ Headers : `Content-Type : Application/json`
 
 Parameters (json format) :
 
-```
+```json
 {
 	"grant_type": "password",
 	"client_id": "your_client_id",
@@ -95,7 +95,7 @@ Headers : `Content-Type : Application/json`
 
 Parameters (json format) :
 
-```
+```json
 {
 	"grant_type": "refresh_token",
 	"client_id": "your_client_id",
