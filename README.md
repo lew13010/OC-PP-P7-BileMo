@@ -169,7 +169,7 @@ For get all users api.
 #### /api/users/{user_id}
 For get a user details with id.
  - Response exemple (json format) :
-```json
+```
 {
     "id": 1,
     "username": "user1",
