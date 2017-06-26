@@ -83,11 +83,11 @@ REQUIRE FOR USE API
  - Request (json format) :
 ```json
 {
-	"grant_type": "password",
-	"client_id": "your_client_id",
-	"client_secret": "your_client_secret",
-	"username": "your_username",
-	"password": "your_password"
+    "grant_type": "password",
+    "client_id": "your_client_id",
+    "client_secret": "your_client_secret",
+    "username": "your_username",
+    "password": "your_password"
 }
 ```
  - Response exemple (json format) :
