@@ -11,6 +11,7 @@ DEPENDENCES
 * JMSSerializerBundle (Serializer Json)
 * BazingaHateoasBundle (Annotation Groups)
 * NelmioApiDocBundle (Documentation API)
+* DoctrineFixturesBundle (Generate Fake Data)
 
 INSTALLATION
 --------------
@@ -29,6 +30,13 @@ $ php bin/console doctrine:database:create
 Update table:
 ```
 $ php bin/console doctrine:schema:update --force
+```
+
+### FIXTURES
+
+Add article data into the database:
+```
+$ php bin/console doctrine:fixtures:load
 ```
 
 REQUIRE FOR USE API
@@ -117,11 +125,11 @@ Headers : `authorization : Bearer your_token`
 For get all users api.
 
 #### /api/users/{user_id}
-For get a user detail with id.
+For get a user details with id.
 
 #### /api/articles
 For get all articles api.
 
 #### /api/articles/{article_id}
-For get article detail with id.
+For get article details with id.
 
