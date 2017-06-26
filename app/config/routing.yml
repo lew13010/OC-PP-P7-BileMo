@@ -1,0 +1,29 @@
+bm_user:
+    resource: "@BMUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc
+
+
+fos_oauth_server_token:
+    resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"
+    prefix: /
+
+#fos_oauth_server_authorize:
+#    resource: "@FOSOAuthServerBundle/Resources/config/routing/authorize.xml"
+#    prefix: /
+
+article:
+    type: rest
+    resource: BM\ApiBundle\Controller\ArticleController
+    prefix: /api
+
+user:
+    type: rest
+    resource: BM\ApiBundle\Controller\UserController
+    prefix: /api

@@ -1,0 +1,9 @@
+services:
+    bm_user.form.registration:
+        class: BM\UserBundle\Form\RegistrationType
+        tags:
+            - { name: form.type, alias: bm_user_registration }
+
+    bm_user.services.registration:
+        class: BM\UserBundle\Services\Registration
+        arguments: ['@fos_user.registration.form.factory', '@fos_user.user_manager.default', '@event_dispatcher']
