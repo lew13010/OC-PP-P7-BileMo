@@ -143,7 +143,7 @@ ENDPOINTS
 #### /api/users
 For get all users api.
  - Response exemple (json format) :
-```json
+```
 [
     {
         "id": 1,
@@ -163,7 +163,7 @@ For get all users api.
             }
         }
     },
-    ...
+    …
 ]
 ```
 #### /api/users/{user_id}
@@ -181,7 +181,7 @@ For get a user details with id.
 #### /api/articles
 For get all articles api.
  - Response exemple (json format) ::
- ```json
+ ```
 [
     {
         "id": 1,
@@ -203,7 +203,7 @@ For get all articles api.
             }
         }
     },
-    ...
+    …
  ```
 
 #### /api/articles/{article_id}
@@ -211,7 +211,7 @@ For get article details with id.
  - Response exemple (json format) :
 ```json
 {
-    "id": 31,
+    "id": 1,
     "marque": "Apple",
     "modele": "Iphone 6",
     "description": "Déverrouillez votre nouvel iPhone 6 à l'aide de votre empreinte pour acheter de la musique, profiter des meilleurs jeux et applications de l'Apple Store et synchronisez le avec l'Apple Watch!",
